@@ -23,6 +23,8 @@ export class StatusComponent implements OnInit {
 
   amount: string = '';
 
+  showButton:boolean = false;
+
   constructor(private httpClient: HttpClient, private backendService: BackendService, private toastr: ToastrService) { }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class StatusComponent implements OnInit {
       console.log(response);
 
       this.toastr.success('Success', 'Fetched application status!');
+      this.showButton = true;
       
       this.applicationId = response.applicationId;
       this.statusName = response.statusName;

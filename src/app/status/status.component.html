@@ -21,3 +21,9 @@
 <label>Representative : {{representativeName}}</label>
 <br>
 <label>Amount : {{amount}}</label>
+
+<div>
+    <button *ngIf="showButton" class="btn btn-danger" (click)="onReject()">Reject</button>
+    
+    <button *ngIf="showButton" class="btn btn-success" (click)="onAccept()">Accept</button>
+</div>
