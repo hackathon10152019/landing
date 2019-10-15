@@ -13,7 +13,7 @@ import { ApplyComponent } from './apply/apply.component';
 import { StatusComponent } from './status/status.component';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/status', pathMatch: 'full' },
+  { path: '', redirectTo: '/apply', pathMatch: 'full' },
   { path: 'apply', component: ApplyComponent },
   { path: 'status', component: StatusComponent }
 ];

@@ -12,7 +12,7 @@ export class BackendService {
   submitForm(formData){
     console.log('submitForm called');
 
-    let apply = this.httpClient.post(environment.apiUrl + '/apply', formData);
+    let apply = this.httpClient.post(environment.apiUrl + '/v1/loanapplication', formData);
 
     return apply;
   }

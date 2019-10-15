@@ -2,111 +2,129 @@
         <div class="col-xs-12 col-md-6 col-md-offset-3">
             <form [formGroup]="applyForm" (ngSubmit)="onSubmit()">
                 <div class="form-group">
-                    <div formGroupName="loan">
+                    
                         <h4>Loan Details</h4>
                         <label for="amount">Amount</label>
                         <input type="number" id="amount" class="form-control" placeholder="Enter Amount"
                             formControlName="amount" />
+                        <span style="color:red" *ngIf="applyForm.get('amount').errors && 
+                        applyForm.get('amount').errors['required'] && 
+                        applyForm.get('amount').touched
+                        ">This field is required! <br></span>
     
                         <label for="term">Term</label>
                         <input type="number" id="term" class="form-control" placeholder="Enter Term"
-                            formControlName="term" />
-    
-                        <label for="assets">Currents Assets</label>
-                        <input type="number" id="assets" class="form-control" placeholder="Enter Assets"
-                            formControlName="assets" />
-    
-                        <label for="debt">Debt restructure</label>
-                        <input type="input" id="debt" class="form-control" placeholder="Enter Debt restructurer"
-                            formControlName="debt" />
-                    </div>
+                            formControlName="term" />                       
+                    
                 </div>
                 
-                <div formGroupName="corporate">
+                
                         <h4>Corporate Details</h4>
-                        <label for="cname">Name</label>
-                        <input type="input" id="cname" class="form-control"
-                            placeholder="Enter Corporate Name" formControlName="cname" />
+                        <label for="corporateName">Name</label>
+                        <input type="input" id="corporateName" class="form-control"
+                            placeholder="Enter Corporate Name" formControlName="corporateName" />
+                        <span style="color:red" *ngIf="applyForm.get('corporateName').errors && 
+                        applyForm.get('corporateName').errors['required'] && 
+                        applyForm.get('corporateName').touched
+                        ">This field is required! <br></span>
     
-                        <label for="caddress">Address</label>
-                        <input type="input" id="caddress" class="form-control" placeholder="Enter Corporate Address"
-                            formControlName="caddress" />
+                        <label for="corporateAddress">Address</label>
+                        <input type="input" id="corporateAddress" class="form-control" placeholder="Enter Corporate Address"
+                            formControlName="corporateAddress" />
+                        <span style="color:red" *ngIf="applyForm.get('corporateAddress').errors && 
+                        applyForm.get('corporateAddress').errors['required'] && 
+                        applyForm.get('corporateAddress').touched
+                        ">This field is required! <br></span>
     
-                        <label for="clstructure">Legal Structure</label>
-                        <input type="input" id="clstructure" class="form-control" placeholder="Enter Legal Structure"
-                            formControlName="clstructure" />
+                        <label for="corporateLegalStructure">Legal Structure</label>
+                        <input type="input" id="corporateLegalStructure" class="form-control" placeholder="Enter Legal Structure"
+                            formControlName="corporateLegalStructure" />
 
-                        <label for="cdor">Date of register</label>
-                        <input type="date" id="cdor" class="form-control" placeholder="Enter date of register"
-                            formControlName="cdor" />
+                        <label for="corporateDateOfRegister">Age</label>
+                        <input type="number" id="corporateDateOfRegister" class="form-control" placeholder="Enter date of register"
+                            formControlName="corporateDateOfRegister" />
+                        <span style="color:red" *ngIf="applyForm.get('corporateDateOfRegister').errors && 
+                            applyForm.get('corporateDateOfRegister').errors['age'] && 
+                            applyForm.get('corporateDateOfRegister').touched
+                            ">Company must be older than 2 years! <br></span>
+                        <span style="color:red" *ngIf="applyForm.get('corporateDateOfRegister').errors && 
+                        applyForm.get('corporateDateOfRegister').errors['required'] && 
+                        applyForm.get('corporateDateOfRegister').touched
+                        ">This field is required! <br></span>
     
-                        <label for="crevenue">Revenue of Last Year</label>
-                        <input type="number" id="crevenue" class="form-control" placeholder="Enter Revenue of Last Year"
-                            formControlName="crevenue" />
-                        <span style="color:red" *ngIf="applyForm.get('corporate.crevenue').errors && 
-                        applyForm.get('corporate.crevenue').errors['revenue'] && 
-                        applyForm.get('corporate.crevenue').touched
+                        <label for="corporateRevenueLastYear">Revenue of Last Year</label>
+                        <input type="number" id="corporateRevenueLastYear" class="form-control" placeholder="Enter Revenue of Last Year"
+                            formControlName="corporateRevenueLastYear" />
+                        <span style="color:red" *ngIf="applyForm.get('corporateRevenueLastYear').errors && 
+                        applyForm.get('corporateRevenueLastYear').errors['revenue'] && 
+                        applyForm.get('corporateRevenueLastYear').touched
                         ">Company must have more than 50k revenue! <br></span>
-                        <span style="color:red" *ngIf="applyForm.get('corporate.crevenue').errors && 
-                        applyForm.get('corporate.crevenue').errors['required'] && 
-                        applyForm.get('corporate.crevenue').touched
+                        <span style="color:red" *ngIf="applyForm.get('corporateRevenueLastYear').errors && 
+                        applyForm.get('corporateRevenueLastYear').errors['required'] && 
+                        applyForm.get('corporateRevenueLastYear').touched
                         ">This field is required! <br></span>
 
-                        <label for="cloan">Existing Loan</label>
-                        <input type="number" id="cloan" class="form-control" placeholder="Enter existing loan amount"
-                            formControlName="cloan" />
-                        <span style="color:red" *ngIf="applyForm.get('corporate.cloan').errors && 
-                        applyForm.get('corporate.cloan').errors['loan'] && 
-                        applyForm.get('corporate.cloan').touched
-                        ">Company must not have loan more than 1.5M in loans already<br></span>
-                        <span style="color:red" *ngIf="applyForm.get('corporate.cloan').errors && 
-                        applyForm.get('corporate.cloan').errors['required'] && 
-                        applyForm.get('corporate.cloan').touched
+                        <label for="corporateCurrentDebt">Existing Loan</label>
+                        <input type="number" id="corporateCurrentDebt" class="form-control" placeholder="Enter existing loan amount"
+                            formControlName="corporateCurrentDebt" />                        
+                        <span style="color:red" *ngIf="applyForm.get('corporateCurrentDebt').errors && 
+                        applyForm.get('corporateCurrentDebt').errors['required'] && 
+                        applyForm.get('corporateCurrentDebt').touched
                         ">This field is required! <br></span>
-                </div>
+                        <span style="color:red" *ngIf="applyForm.get('corporateCurrentDebt').errors && 
+                        applyForm.get('corporateCurrentDebt').errors['loan'] && 
+                        applyForm.get('corporateCurrentDebt').touched
+                        ">Company must not have loan more than 1.5M in loans already<br></span>
+                
     
                 <br>
                 
-                <div formGroupName="representative">
+                
                     <h4>Personal Details of corporate representative(s)</h4>
 
-                    <label for="rname">Name</label>
-                    <input type="input" id="rname" class="form-control" placeholder="Enter representative name"
-                        formControlName="rname" />
+                    <label for="representiveFirstName">Name</label>
+                    <input type="input" id="representiveFirstName" class="form-control" placeholder="Enter representative name"
+                        formControlName="representiveFirstName" />
 
-                    <label for="raddress">Address</label>
-                    <input type="input" id="raddress" class="form-control" placeholder="Enter representative address"
-                        formControlName="raddress" />
+                    <label for="representiveAddress">Address</label>
+                    <input type="input" id="representiveAddress" class="form-control" placeholder="Enter representative address"
+                        formControlName="representiveAddress" />
 
-                    <label for="rcitizenship">Citizenship</label>
-                    <input type="input" id="rcitizenship" class="form-control" placeholder="Enter representative citizenship"
-                        formControlName="rcitizenship" />
+                    <label for="representiveCitizenShip">Citizenship</label>
+                    <input type="input" id="representiveCitizenShip" class="form-control" placeholder="Enter representative citizenship"
+                        formControlName="representiveCitizenShip" />
 
-                    <label for="rdob">Date of birth</label>
-                    <input type="date" id="rdob" class="form-control" placeholder="Enter representative date of birth"
-                        formControlName="rdob" />
-
-                    <label for="rphonenumber">Phone number</label>
-                    <input type="input" id="rphonenumber" class="form-control" placeholder="Enter representative phone number"
-                        formControlName="rphonenumber" />
-
-                    <label for="remail">Email</label>
-                    <input type="input" id="remail" class="form-control" placeholder="Enter representative email"
-                    formControlName="remail" />
-
-                    <label for="rloan">Loan Amount</label>
-                    <input type="number" id="rloan" class="form-control" placeholder="Enter representative existing loan"
-                    formControlName="rloan" />
-                    <span style="color:red" *ngIf="applyForm.get('representative.rloan').errors && 
-                        applyForm.get('representative.rloan').errors['loan'] && 
-                        applyForm.get('representative.rloan').touched
-                        ">Representative must not have loan more than 1.5M in loans already<br></span>
-                        <span style="color:red" *ngIf="applyForm.get('representative.rloan').errors && 
-                        applyForm.get('representative.rloan').errors['required'] && 
-                        applyForm.get('representative.rloan').touched
+                    <label for="representiveDateOfBirth">Age</label>
+                    <input type="number" id="rage" class="form-control" placeholder="Enter representative age"
+                        formControlName="representiveDateOfBirth" />
+                    <span style="color:red" *ngIf="applyForm.get('representiveDateOfBirth').errors && 
+                        applyForm.get('representiveDateOfBirth').errors['age'] && 
+                        applyForm.get('representiveDateOfBirth').touched
+                        ">Representative must be older than 18<br></span>
+                        <span style="color:red" *ngIf="applyForm.get('representiveDateOfBirth').errors && 
+                        applyForm.get('representiveDateOfBirth').errors['required'] && 
+                        applyForm.get('representiveDateOfBirth').touched
                         ">This field is required! <br></span>
 
-                </div>                
+                    <label for="representivePhoneNumber">Phone number</label>
+                    <input type="input" id="representivePhoneNumber" class="form-control" placeholder="Enter representative phone number"
+                        formControlName="representivePhoneNumber" />
+
+                    <label for="representiveEmail">Email</label>
+                    <input type="input" id="representiveEmail" class="form-control" placeholder="Enter representative email"
+                    formControlName="representiveEmail" />
+
+                    <label for="representiveLoan">Loan Amount</label>
+                    <input type="number" id="representiveLoan" class="form-control" placeholder="Enter representative existing loan"
+                    formControlName="representiveLoan" />
+                    <span style="color:red" *ngIf="applyForm.get('representiveLoan').errors && 
+                        applyForm.get('representiveLoan').errors['loan'] && 
+                        applyForm.get('representiveLoan').touched
+                        ">Representative must not have loan more than 1.5M in loans already<br></span>
+                        <span style="color:red" *ngIf="applyForm.get('representiveLoan').errors && 
+                        applyForm.get('representiveLoan').errors['required'] && 
+                        applyForm.get('representiveLoan').touched
+                        ">This field is required! <br></span>                  
                 
                 <br>                
                 
