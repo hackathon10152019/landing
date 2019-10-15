@@ -55,6 +55,14 @@
                         <label for="cloan">Existing Loan</label>
                         <input type="number" id="cloan" class="form-control" placeholder="Enter existing loan amount"
                             formControlName="cloan" />
+                        <span style="color:red" *ngIf="applyForm.get('corporate.cloan').errors && 
+                        applyForm.get('corporate.cloan').errors['loan'] && 
+                        applyForm.get('corporate.cloan').touched
+                        ">Company must not have loan more than 1.5M in loans already<br></span>
+                        <span style="color:red" *ngIf="applyForm.get('corporate.cloan').errors && 
+                        applyForm.get('corporate.cloan').errors['required'] && 
+                        applyForm.get('corporate.cloan').touched
+                        ">This field is required! <br></span>
                 </div>
     
                 <br>
@@ -89,6 +97,14 @@
                     <label for="rloan">Loan Amount</label>
                     <input type="number" id="rloan" class="form-control" placeholder="Enter representative existing loan"
                     formControlName="rloan" />
+                    <span style="color:red" *ngIf="applyForm.get('representative.rloan').errors && 
+                        applyForm.get('representative.rloan').errors['loan'] && 
+                        applyForm.get('representative.rloan').touched
+                        ">Representative must not have loan more than 1.5M in loans already<br></span>
+                        <span style="color:red" *ngIf="applyForm.get('representative.rloan').errors && 
+                        applyForm.get('representative.rloan').errors['required'] && 
+                        applyForm.get('representative.rloan').touched
+                        ">This field is required! <br></span>
 
                 </div>                
                 

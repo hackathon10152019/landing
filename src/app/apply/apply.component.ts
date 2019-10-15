@@ -29,7 +29,7 @@ export class ApplyComponent implements OnInit {
         'clstructure': new FormControl(null, Validators.required),
         'cdor': new FormControl(null, Validators.required),
         'crevenue': new FormControl(null, [Validators.required, this.companyRevenueValidator.bind(this)]),
-        'cloan': new FormControl(null, [Validators.required, this.loanValidator.bind(this)])
+        'cloan': new FormControl(null, [this.loanValidator.bind(this)])
       }),
       'representative': new FormGroup({
         'rname': new FormControl(null, Validators.required),
@@ -38,7 +38,7 @@ export class ApplyComponent implements OnInit {
         'rdob': new FormControl(null, Validators.required),
         'rphonenumber': new FormControl(null),
         'remail': new FormControl(null),
-        'rloan': new FormControl(null)
+        'rloan': new FormControl(null, [this.loanValidator.bind(this)])
       })
     });
   }
