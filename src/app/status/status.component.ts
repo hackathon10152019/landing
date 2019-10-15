@@ -12,8 +12,16 @@ import { ToastrService } from 'ngx-toastr';
 export class StatusComponent implements OnInit {
 
   statusForm: FormGroup;
+  
+  applicationId:string = '';
 
-  applicationForm: FormGroup;  
+  statusName:string = '';
+
+  corporateName: string = '';
+
+  representativeName: string = '';
+
+  amount: string = '';
 
   constructor(private httpClient: HttpClient, private backendService: BackendService, private toastr: ToastrService) { }
 
@@ -25,6 +33,22 @@ export class StatusComponent implements OnInit {
 
   onSubmit(){
     console.log("onSubmit is called");
+
+    let applySubscription = this.backendService.getStatus(this.statusForm.get('applicationId').value);
+
+    applySubscription.subscribe((response: any) => {
+      console.log(response);
+      
+      this.applicationId = response.applicationId;
+      this.statusName = response.statusName;
+      this.corporateName = response.corporateName;
+      this.representativeName =  response.representativeName;
+      this.amount = response.amount;
+
+    }, error => {
+      console.log(error);
+      this.toastr.error('Error', 'Error occured on getting application status!');
+    });
   }
 
   onReject(){

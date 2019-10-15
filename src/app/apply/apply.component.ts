@@ -16,32 +16,6 @@ export class ApplyComponent implements OnInit {
   constructor(private httpClient: HttpClient, private backendService: BackendService, private toastr: ToastrService) { }
 
   ngOnInit() {
-    // this.applyForm = new FormGroup({
-    //   'loan': new FormGroup({
-    //     'amount': new FormControl(null, Validators.required),
-    //     'term': new FormControl(null, Validators.required),
-    //     'assets': new FormControl(null, Validators.required),
-    //     'debt': new FormControl(null)
-    //   }),
-    //   'corporate': new FormGroup({
-    //     'cname': new FormControl(null, Validators.required),
-    //     'caddress': new FormControl(null, Validators.required),
-    //     'clstructure': new FormControl(null, Validators.required),
-    //     'cdor': new FormControl(null, [Validators.required, this.companyAgeValidator.bind(this)]),
-    //     'crevenue': new FormControl(null, [Validators.required, this.companyRevenueValidator.bind(this)]),
-    //     'cloan': new FormControl(null, [this.loanValidator.bind(this)])
-    //   }),
-    //   'representative': new FormGroup({
-    //     'rname': new FormControl(null, Validators.required),
-    //     'raddress': new FormControl(null, Validators.required),
-    //     'rcitizenship': new FormControl(null, Validators.required),
-    //     'rage': new FormControl(null, [Validators.required, this.representiveAgeValidator.bind(this)]),
-    //     'rphonenumber': new FormControl(null),
-    //     'remail': new FormControl(null),
-    //     'rloan': new FormControl(null, [this.loanValidator.bind(this)])
-    //   })
-    // });
-
     this.applyForm = new FormGroup({
       'amount': new FormControl(null, [Validators.required]),
       'corporateAddress': new FormControl(null, [Validators.required]),
@@ -52,15 +26,15 @@ export class ApplyComponent implements OnInit {
       'puropse': new FormControl(null),
       'corporateDateOfRegister': new FormControl(null, [Validators.required, this.companyAgeValidator.bind(this)]),
       'corporateCurrentDebt': new FormControl(null, [Validators.required, this.loanValidator.bind(this)]),
-      'representiveAddress': new FormControl(null),
-      'representiveCitizenShip': new FormControl(null),
-      'representiveDateOfBirth': new FormControl(null),
-      'representiveFirstName': new FormControl(null),
+      'representiveAddress': new FormControl(null, [Validators.required]),
+      'representiveCitizenShip': new FormControl(null, [Validators.required]),
+      'representiveDateOfBirth': new FormControl(null, [Validators.required, this.representiveAgeValidator.bind(this)]),
+      'representiveFirstName': new FormControl(null, [Validators.required]),
       'representiveLastName': new FormControl(null),
       'representivePassportNumber': new FormControl(null),
       'representivePhoneNumber': new FormControl(null),
       "representiveEmail": new FormControl(null),
-      "representiveLoan": new FormControl(null, [this.loanValidator.bind(this)]),
+      "representiveLoan": new FormControl(null, [Validators.required, this.loanValidator.bind(this)]),
       'term': new FormControl(null) 
     });
   }

@@ -85,14 +85,26 @@
                     <label for="representiveFirstName">Name</label>
                     <input type="input" id="representiveFirstName" class="form-control" placeholder="Enter representative name"
                         formControlName="representiveFirstName" />
+                    <span style="color:red" *ngIf="applyForm.get('representiveFirstName').errors && 
+                        applyForm.get('representiveFirstName').errors['required'] && 
+                        applyForm.get('representiveFirstName').touched
+                        ">This field is required! <br></span>
 
                     <label for="representiveAddress">Address</label>
                     <input type="input" id="representiveAddress" class="form-control" placeholder="Enter representative address"
                         formControlName="representiveAddress" />
+                    <span style="color:red" *ngIf="applyForm.get('representiveAddress').errors && 
+                        applyForm.get('representiveAddress').errors['required'] && 
+                        applyForm.get('representiveAddress').touched
+                        ">This field is required! <br></span>
 
                     <label for="representiveCitizenShip">Citizenship</label>
                     <input type="input" id="representiveCitizenShip" class="form-control" placeholder="Enter representative citizenship"
                         formControlName="representiveCitizenShip" />
+                    <span style="color:red" *ngIf="applyForm.get('representiveCitizenShip').errors && 
+                        applyForm.get('representiveCitizenShip').errors['required'] && 
+                        applyForm.get('representiveCitizenShip').touched
+                        ">This field is required! <br></span>
 
                     <label for="representiveDateOfBirth">Age</label>
                     <input type="number" id="rage" class="form-control" placeholder="Enter representative age"

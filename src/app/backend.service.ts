@@ -16,4 +16,12 @@ export class BackendService {
 
     return apply;
   }
+
+  getStatus(applicationId){
+    console.log('submitForm called');
+
+    let status = this.httpClient.get(environment.apiUrl + '/v1/loanapplication/status?applicationId=' + applicationId);
+
+    return status;
+  }
 }
