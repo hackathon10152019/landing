@@ -1,0 +1,95 @@
+<div class="row">
+        <div class="col-xs-12 col-md-6 col-md-offset-3">
+            <form [formGroup]="applyForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <div formGroupName="loan">
+                        <h4>Loan Details</h4>
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" class="form-control" placeholder="Enter Amount"
+                            formControlName="amount" />
+    
+                        <label for="term">Term</label>
+                        <input type="number" id="term" class="form-control" placeholder="Enter Term"
+                            formControlName="term" />
+    
+                        <label for="assets">Currents Assets</label>
+                        <input type="number" id="assets" class="form-control" placeholder="Enter Assets"
+                            formControlName="assets" />
+    
+                        <label for="debt">Debt restructure</label>
+                        <input type="input" id="debt" class="form-control" placeholder="Enter Debt restructurer"
+                            formControlName="debt" />
+                    </div>
+                </div>
+                
+                <div formGroupName="corporate">
+                        <h4>Corporate Details</h4>
+                        <label for="cname">Name</label>
+                        <input type="input" id="cname" class="form-control"
+                            placeholder="Enter Corporate Name" formControlName="cname" />
+    
+                        <label for="caddress">Address</label>
+                        <input type="input" id="caddress" class="form-control" placeholder="Enter Corporate Address"
+                            formControlName="caddress" />
+    
+                        <label for="clstructure">Legal Structure</label>
+                        <input type="input" id="clstructure" class="form-control" placeholder="Enter Legal Structure"
+                            formControlName="clstructure" />
+
+                        <label for="cdor">Date of register</label>
+                        <input type="date" id="cdor" class="form-control" placeholder="Enter date of register"
+                            formControlName="cdor" />
+    
+                        <label for="crevenue">Revenue of Last Year</label>
+                        <input type="number" id="crevenue" class="form-control" placeholder="Enter Revenue of Last Year"
+                            formControlName="crevenue" />
+                        <!-- <span *ngIf="applyForm.get('corporate.crevenue').error['revenue']">Company must have more than 50k revenue!</span> -->
+
+                        <label for="cloan">Existing Loan</label>
+                        <input type="number" id="cloan" class="form-control" placeholder="Enter existing loan amount"
+                            formControlName="cloan" />
+                </div>
+    
+                <br>
+                
+                <div formGroupName="representative">
+                    <h4>Personal Details of corporate representative(s)</h4>
+
+                    <label for="rname">Name</label>
+                    <input type="input" id="rname" class="form-control" placeholder="Enter representative name"
+                        formControlName="rname" />
+
+                    <label for="raddress">Address</label>
+                    <input type="input" id="raddress" class="form-control" placeholder="Enter representative address"
+                        formControlName="raddress" />
+
+                    <label for="rcitizenship">Citizenship</label>
+                    <input type="input" id="rcitizenship" class="form-control" placeholder="Enter representative citizenship"
+                        formControlName="rcitizenship" />
+
+                    <label for="rdob">Date of birth</label>
+                    <input type="date" id="rdob" class="form-control" placeholder="Enter representative date of birth"
+                        formControlName="rdob" />
+
+                    <label for="rphonenumber">Phone number</label>
+                    <input type="input" id="rphonenumber" class="form-control" placeholder="Enter representative phone number"
+                        formControlName="rphonenumber" />
+
+                    <label for="remail">Email</label>
+                    <input type="input" id="remail" class="form-control" placeholder="Enter representative email"
+                    formControlName="remail" />
+
+                    <label for="rloan">Loan Amount</label>
+                    <input type="number" id="rloan" class="form-control" placeholder="Enter representative existing loan"
+                    formControlName="rloan" />
+
+                </div>                
+                
+                <br>                
+                
+                <div>
+                    <button class="btn btn-primary">Create Account</button>
+                </div>
+            </form>
+        </div>
+    </div>
