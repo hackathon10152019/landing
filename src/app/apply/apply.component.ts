@@ -3,6 +3,7 @@ import {HttpClient } from '@angular/common/http';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BackendService } from '../backend.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apply',
@@ -13,7 +14,8 @@ export class ApplyComponent implements OnInit {
 
   applyForm: FormGroup;
 
-  constructor(private httpClient: HttpClient, private backendService: BackendService, private toastr: ToastrService) { }
+  constructor(private httpClient: HttpClient, private backendService: BackendService, 
+    private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
     this.applyForm = new FormGroup({
@@ -73,13 +75,18 @@ export class ApplyComponent implements OnInit {
 
   onSubmit(){
     console.log('onSubmit is called');
-    console.log(this.applyForm.get('corporate.crevenue'));
+    
+    if(!this.applyForm.valid){
+      this.toastr.error('Error', 'Form is not valid!');
+      return;
+    }
 
     let applySubscription = this.backendService.submitForm(this.applyForm.value);
 
     applySubscription.subscribe((response: any) => {
       console.log(response);
       this.toastr.success('Success', 'Application submitted!');
+      this.router.navigate(['/status']);
     }, error => {
       console.log(error);
       this.toastr.error('Error', 'Error occured on creating Mortgage Account!');

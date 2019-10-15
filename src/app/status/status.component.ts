@@ -38,6 +38,8 @@ export class StatusComponent implements OnInit {
 
     applySubscription.subscribe((response: any) => {
       console.log(response);
+
+      this.toastr.success('Success', 'Fetched application status!');
       
       this.applicationId = response.applicationId;
       this.statusName = response.statusName;
