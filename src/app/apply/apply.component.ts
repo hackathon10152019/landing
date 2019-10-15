@@ -30,7 +30,7 @@ export class ApplyComponent implements OnInit {
       'corporateCurrentDebt': new FormControl(null, [Validators.required, this.loanValidator.bind(this)]),
       'representiveAddress': new FormControl(null, [Validators.required]),
       'representiveCitizenShip': new FormControl(null, [Validators.required]),
-      'representiveDateOfBirth': new FormControl(null, [Validators.required, this.representiveAgeValidator.bind(this)]),
+      'representiveDateOfBirth': new FormControl(null),
       'representiveFirstName': new FormControl(null, [Validators.required]),
       'representiveLastName': new FormControl(null),
       'representivePassportNumber': new FormControl(null),
