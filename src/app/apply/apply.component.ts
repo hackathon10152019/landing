@@ -44,7 +44,7 @@ export class ApplyComponent implements OnInit {
   }
 
   companyRevenueValidator(control: FormControl): {[s: string]: boolean}{
-    if(control.value < 50000){
+    if(control.value <= 50000){
       return {revenue: true};
     }
     
@@ -52,7 +52,7 @@ export class ApplyComponent implements OnInit {
   }
 
   loanValidator(control: FormControl): {[s: string]: boolean}{
-    if(control.value > 1500000){
+    if(control.value >= 1500000){
       return {loan: true};
     }
     
@@ -61,6 +61,7 @@ export class ApplyComponent implements OnInit {
 
   onSubmit(){
     console.log('onSubmit is called');
+    console.log(this.applyForm.get('corporate.crevenue'));
 
     let applySubscription = this.backendService.submitForm(this.applyForm.value);
 
